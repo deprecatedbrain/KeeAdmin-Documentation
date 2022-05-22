@@ -1,37 +1,48 @@
-## Welcome to GitHub Pages
+# **KeeAdmin v2**
+**An administration system to fit all your needs, made faster**
 
-You can use the [editor on GitHub](https://github.com/deprecatedbrain/KeeAdmin-Documentation/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## **Packages**
+To make a package, go to the Packages folder in `KeeAdmin/Core/Packages`. You can either make a server or a client sided command.
+To make a package use the following format:
+```lua
+{
+	name = "clienttest",
+	aliases = {"clienttest2", "clienttest3"},
+	prefix = ":",
+	description = "Test command for packages on the client",
+	category = "misc",
+	level = 0,
+		
+	execute = function(player, args)
+		print("Hello from the client!")
+		print(string.format("Player %s sent client test package", player.Name))
+	end,
+}
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## **Execution** 
+To execute a command use the prefix set inside of `KeeAdmin/Core/Configuration`<br>
+You can change `split` or `prefix`<br>
+`split` is used to split commands. For example the '|' in:<br>
+:speed me 15 | :sit me<br>
 
-### Jekyll Themes
+`prefix` is used to define a command. For example the ':' in:<br>
+`:speed me 100`
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/deprecatedbrain/KeeAdmin-Documentation/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## **Configuration**
+To configure KeeAdmin go to `KeeAdmin/Core/Configuration`.<br>
+`prefix` and `split` see "Execution"
 
-### Support or Contact
+`DataStoreKey` **CHANGE THIS** This is used to save and store your data. Changing it will result in losing all your data. If it is set back data will be restored.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+It is reccomended to use a users UserId to set their rank. Username also works.<br>
+`Moderators` Level 1<br>
+`Administrators` Level 2<br>
+`Owners` Level 3<br>
+
+`ToolsDirectory` Where tools are stored
+
+`FunCommandsEnabled` Whether or not fun commands are allowed<br>
+`PlaceOwnerPermissionsEnabled` Gives the owner of the game owner permissions
+`AdminCreatorPermissionsEnabled` Gives the creators of KeeAdmin owner permissions
+
